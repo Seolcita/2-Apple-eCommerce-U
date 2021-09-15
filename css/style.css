@@ -44,6 +44,7 @@ body {
 .hero {
   width: 100%;
   height: 100vh;
+  background-color: var(--primary-color);
   clip-path: polygon(100% 0, 100% 95%, 38% 100%, 0 100%, 0 0);
   display: flex;
   flex-direction: column;
@@ -58,7 +59,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; }
+    flex-direction: column;
+    width: 50%; }
   .hero h1 {
     font-size: 13rem;
     font-weight: 300;
@@ -101,4 +103,125 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 0;
     transition: opacity 5s; }
+  .slideshow div.change {
+    opacity: 1; }
+
+.cube__container {
+  perspective: 100rem; }
+
+.cube__box {
+  width: 30rem;
+  height: 55rem;
+  transform-style: preserve-3d;
+  transform: rotateX(0) rotateY(20deg) rotateZ(0);
+  background-color: white;
+  position: relative;
+  top: -2rem;
+  transition: transform 0.3s; }
+  .cube__box--front, .cube__box--back {
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    background-color: white;
+    position: absolute;
+    transform-style: preserve-3d;
+    box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+  .cube__box--front {
+    transform: translateZ(5rem); }
+    .cube__box--front img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; }
+    .cube__box--front::before, .cube__box--front::after {
+      content: '';
+      width: 100%;
+      height: 10rem;
+      background-color: white;
+      position: absolute;
+      box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+    .cube__box--front::before {
+      top: 0;
+      left: 0;
+      transform: rotateX(-90deg);
+      transform-origin: top; }
+    .cube__box--front::after {
+      bottom: 0;
+      left: 0;
+      transform: rotateX(90deg);
+      transform-origin: bottom; }
+  .cube__box--back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(-5rem); }
+    .cube__box--back i {
+      font-size: 12rem;
+      color: var(--primary-color);
+      transform: rotateY(180deg); }
+    .cube__box--back::before, .cube__box--back::after {
+      content: 'iPhone';
+      width: 10rem;
+      height: 100%;
+      background-color: white;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd; }
+    .cube__box--back::before {
+      top: 0;
+      left: 0;
+      transform: rotateY(-90deg);
+      transform-origin: left; }
+    .cube__box--back::after {
+      top: 0;
+      right: 0;
+      transform: rotateY(90deg);
+      transform-origin: right; }
+
+.control {
+  position: absolute;
+  bottom: -15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 50%;
+  border: 1rem solid rgba(0, 0, 0, 0.8); }
+  .control i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0.5;
+    transition: opacity 0.5s; }
+  .control a {
+    position: absolute; }
+  .control a:hover i {
+    opacity: 1; }
+  .control--top-x {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .control--bottom-x {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
+  .control--left-y {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); }
+  .control--right-y {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%); }
+  .control--top-z {
+    top: 10%;
+    right: 10%;
+    transform: rotate(45deg); }
+  .control--bottom-z {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(45deg); }

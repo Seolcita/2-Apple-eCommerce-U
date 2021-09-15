@@ -8,6 +8,10 @@
   --black-color: #000;
 }
 
+// box-shadow
+$cube-box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd,
+  inset -0.1rem -0.1rem 0.1rem #ddd;
+
 * {
   margin: 0;
   padding: 0;

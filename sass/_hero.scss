@@ -3,7 +3,7 @@
 .hero {
   width: 100%;
   height: 100vh;
-  // background-color: var(--primary-color);
+  background-color: var(--primary-color);
   clip-path: polygon(100% 0, 100% 95%, 38% 100%, 0 100%, 0 0);
 
   // @include center;
@@ -23,6 +23,7 @@
   &__texts {
     @include center;
     flex-direction: column;
+    width: 50%;
   }
 
   h1 {
@@ -100,7 +101,168 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    // opacity: 0;
+    opacity: 0;
     transition: opacity 5s;
+  }
+
+  div.change {
+    opacity: 1;
+  }
+}
+
+.cube {
+  &__container {
+    perspective: 100rem;
+  }
+
+  &__box {
+    width: 30rem;
+    height: 55rem;
+    transform-style: preserve-3d;
+    transform: rotateX(0) rotateY(20deg) rotateZ(0);
+    background-color: white;
+    position: relative;
+    top: -2rem;
+    transition: transform 0.3s;
+
+    &--front,
+    &--back {
+      width: 100%;
+      height: 100%;
+      padding: 2.5rem;
+      background-color: white;
+      position: absolute;
+      transform-style: preserve-3d;
+      box-shadow: $cube-box-shadow;
+    }
+
+    &--front {
+      transform: translateZ(5rem);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        width: 100%;
+        height: 10rem;
+        background-color: white;
+        position: absolute;
+        box-shadow: $cube-box-shadow;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform: rotateX(-90deg);
+        transform-origin: top;
+      }
+
+      &::after {
+        bottom: 0;
+        left: 0;
+        transform: rotateX(90deg);
+        transform-origin: bottom;
+      }
+    }
+
+    &--back {
+      @include center;
+      transform: translateZ(-5rem);
+
+      i {
+        font-size: 12rem;
+        color: var(--primary-color);
+        transform: rotateY(180deg);
+      }
+
+      &::before,
+      &::after {
+        content: 'iPhone';
+        width: 10rem;
+        height: 100%;
+        background-color: white;
+        position: absolute;
+        @include center;
+        font-size: 2rem;
+        box-shadow: $cube-box-shadow;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform: rotateY(-90deg);
+        transform-origin: left;
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+        transform: rotateY(90deg);
+        transform-origin: right;
+      }
+    }
+  }
+}
+
+.control {
+  position: absolute;
+  bottom: -15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 50%;
+  border: 1rem solid rgba(0, 0, 0, 0.8);
+
+  i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+
+  a {
+    position: absolute;
+  }
+
+  a:hover i {
+    opacity: 1;
+  }
+
+  &--top-x {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &--bottom-x {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &--left-y {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  &--right-y {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  &--top-z {
+    top: 10%;
+    right: 10%;
+    transform: rotate(45deg);
+  }
+  &--bottom-z {
+    bottom: 10%;
+    left: 10%;
+    transform: rotate(45deg);
   }
 }

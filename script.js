@@ -106,3 +106,17 @@ document.querySelector('.control').addEventListener('mouseout', () => {
   bool = true;
   playPuase();
 });
+
+// ------------- MacBook Section-------------
+
+const mackBookContent = document.querySelector('.macbook__contents');
+
+window.addEventListener('scroll', () => {
+  if (
+    window.pageYOffset + window.innerHeight >=
+    mackBookContent.offsetTop + mackBookContent.offsetHeight / 2
+  ) {
+    console.log('Scrolled');
+    mackBookContent.classList.add('change');
+  }
+});

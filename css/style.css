@@ -225,3 +225,82 @@ body {
     bottom: 10%;
     left: 10%;
     transform: rotate(45deg); }
+
+/** @format */
+.iphone {
+  width: 100%;
+  height: 120%;
+  padding: 10% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; }
+  .iphone__title {
+    font-size: 10rem;
+    font-weight: 200;
+    color: var(--black-color);
+    position: relative;
+    margin-bottom: 5rem; }
+    .iphone__title::before {
+      content: '';
+      width: 130%;
+      height: 30vw;
+      background-image: linear-gradient(var(--primary-color), var(--white-color));
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: skewX(-50deg);
+      transform-origin: left top;
+      z-index: -1;
+      border-radius: 1rem; }
+  .iphone__image {
+    height: 60vh;
+    width: 50vw;
+    border-radius: 0.5rem; }
+    .iphone__image img {
+      width: inherit;
+      height: inherit;
+      object-fit: contain;
+      position: absolute;
+      transition: opacity 2s; }
+    .iphone__image--2 {
+      opacity: 0; }
+    .iphone__image:hover .iphone__image--1 {
+      opacity: 0; }
+    .iphone__image:hover .iphone__image--2 {
+      opacity: 1; }
+  .iphone__btn {
+    display: flex;
+    position: relative; }
+    .iphone__btn span {
+      position: absolute;
+      top: -3rem;
+      font-size: 1.6rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: var(--primary-color);
+      width: max-content;
+      transform: scale(0);
+      transition: transform 0.5s; }
+    .iphone__btn--1 {
+      left: -2.8rem; }
+    .iphone__btn--2 {
+      left: 1rem; }
+    .iphone__btn a {
+      width: 6rem;
+      height: 6rem;
+      background-image: linear-gradient(to right, #333333 60%, #525252);
+      margin: 7rem 5rem;
+      border-radius: 50%;
+      position: relative; }
+      .iphone__btn a::after {
+        content: '';
+        width: 50%;
+        height: 50%;
+        display: block;
+        border: 0.1rem solid #6edae6;
+        border-radius: 1rem;
+        transform: translate(45%, 45%); }
+      .iphone__btn a:hover span {
+        transform: scale(1); }
